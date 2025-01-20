@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios del Artículo</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #000000;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #e72c2c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Precios del Artículo: {{ articulo }}</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Tipo Tienda</th>
+                <th>Precio 2IVA</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if rows %}
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="2">No se encontraron precios para este artículo</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+    <a href="/">Volver a la lista de artículos</a>
+</body>
+</html>
